@@ -1,11 +1,7 @@
 const express = require("express");
 
 const app = express();
-const indexRouter = require("./routes"); // index.js mention nagere pani automatically index.js lai khojcha
-
-// app.get("/", (req, res) => {
-//   res.send("Hello World");
-// });
+const indexRouter = require("./routes/router"); // index.js mention nagere pani automatically index.js lai khojcha
 
 app.use("/", indexRouter);
 
