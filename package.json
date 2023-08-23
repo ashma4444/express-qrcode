@@ -1,0 +1,18 @@
+{
+  "name": "express-qrcode",
+  "version": "1.0.0",
+  "description": "qrcode website",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon .",
+    "prod": "node ."
+  },
+  "author": "ashma maharjan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
