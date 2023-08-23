@@ -1,7 +1,7 @@
 const express = require("express");
 
 const app = express();
-const indexRouter = require("./routes/router"); // index.js mention nagere pani automatically index.js lai khojcha
+const indexRouter = require("./routes"); // index.js mention nagere pani automatically index.js lai khojcha
 
 app.use("/", indexRouter);
 
