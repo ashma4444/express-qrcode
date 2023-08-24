@@ -12,10 +12,17 @@ const QRController = require("./qr.controller");
 //   console.log(body);
 // });
 
-router.post("/", async (req, res) => {
-  const { url } = req.body;
-  const data = await QRController.createQR(url);
-  res.json({ data });
+router.post("/", async (req, res, next) => {
+  try {
+    const { url } = req.body;
+    if (!url) {
+      throw new Error("URL is required");
+    }
+    const data = await QRController.createQR(url);
+    res.json({ data });
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;

@@ -7,6 +7,12 @@ app.use(express.json());
 
 app.use("/", indexRouter);
 
+app.use((err, req, res, next) => {
+  console.error(err);
+  //   res.status(500).json({ msg: "Sth went wrong..." });
+  res.status(500).json({ msg: err.toString() });
+});
+
 app.listen(3333); // above 3000 we can use any port
 console.log("App is running on port 3333");
 

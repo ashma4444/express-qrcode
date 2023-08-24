@@ -5,4 +5,4 @@ const createQR = async (data) => {
   return result;
 };
 
-module.exports = createQR;
+module.exports = { createQR };
