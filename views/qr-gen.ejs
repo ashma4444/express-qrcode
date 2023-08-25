@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="urlData" />
+      <button onclick="submitForm(); return false">Click here</button>
+    </form>
+    <img src="" alt="" id="qr-img" />
+  </body>
+
+  <script>
+    const submitForm = async () => {
+      try {
+        const urlData = document.getElementById("urlData").value;
+        const response = await fetch("api/v1/qr", {
+          method: "POST",
+          body: JSON.stringify({
+            url: urlData,
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+        const data = await response.json();
+        const imgSrc = data.data;
+        const qrImgElement = document.getElementById("qr-img"); // Assuming you have an <img> tag with id="qr-img"
+        qrImgElement.src = imgSrc;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+  </script>
+</html>

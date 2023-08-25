@@ -7,10 +7,15 @@ app.use(express.json());
 
 app.use("/", indexRouter);
 
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
+app.use(express.static("public"));
+
 app.use((err, req, res, next) => {
   console.error(err);
   //   res.status(500).json({ msg: "Sth went wrong..." });
-  res.status(500).json({ msg: err.toString() });
+  res.status(500).json({ msg: err.toString() || "sth went wrong" });
 });
 
 app.listen(3333); // above 3000 we can use any port
