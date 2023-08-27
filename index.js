@@ -12,6 +12,7 @@ app.set("views", "./views");
 
 app.use(express.static("public"));
 
+//middleware
 app.use((err, req, res, next) => {
   console.error(err);
   //   res.status(500).json({ msg: "Sth went wrong..." });
